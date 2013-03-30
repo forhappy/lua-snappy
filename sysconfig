@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Try to Configure your system, please wait..."
+
+`cd snappy && ./autogen.sh > /dev/null 2>&1`
+`cd snappy && ./configure > /dev/null 2>&1`
+
+
+echo "*****************************************"
+echo "*   Finished configuring your system!   *"
+echo "* Use make command to build lua snappy. *"
+echo "*****************************************"
