@@ -3,7 +3,7 @@ Lua-snappy
 
 Lua binding of google's [snappy](https://code.google.com/p/snappy/ "snappy") compressor.
 
-How to build
+How to Build
 ============
 First of all, configure your system using:
 
@@ -15,6 +15,17 @@ Then, build lua-snappy with make:
 
 That'all, enjoy snappy in lua.
 
-Report bugs
+How to Use
+==========
+Here is a sample usage in shell:
+
+        Lua 5.1.4 Copyright (C) 1994-2008 Lua.org, PUC-Rio
+        > require "snappy"
+        > compressed = snappy.compress("hello world!")
+        > uncompressed = snappy.uncompress(compressed) -- snappy.decompress(compressed) also works.
+        > print(uncompressed)
+        hello world!
+
+Report Bugs
 ===========
 Please report bugs to haipingf AT gmail DOT com
