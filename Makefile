@@ -6,7 +6,10 @@ CC=g++
 CCFLAGS=-fPIC -Wall -g -O2
 LDFLAGS=-shared
 
-all:snappy.so
+all:preprocess snappy.so test
+
+preprocess:
+	sh sysconfig
 
 snappy.so:lua-snappy.o snappy.o snappy-c.o\
 	snappy-sinksource.o snappy-stubs-interal.o
@@ -26,6 +29,9 @@ snappy-sinksource.o:snappy/snappy-sinksource.cc
 
 snappy-stubs-interal.o:snappy/snappy-stubs-internal.cc
 	$(CC) -o $@ -c $(CCFLAGS) $^
+
+test:snappy.so
+	lua lua-snappy_test.lua
 
 .PHONY:clean
 
