@@ -22,6 +22,9 @@ Here is a sample usage in shell:
         Lua 5.1.4 Copyright (C) 1994-2008 Lua.org, PUC-Rio
         > require "snappy"
         > compressed = snappy.compress("hello world!")
+        > indicator = snappy.validate_compressed_buffer(compressed)
+        > print(indicator)
+        true
         > uncompressed = snappy.uncompress(compressed) -- snappy.decompress(compressed) also works.
         > print(uncompressed)
         hello world!

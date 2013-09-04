@@ -64,11 +64,25 @@ static int lsnappy_uncompress(lua_State *L)
     return luaL_error(L, "snappy: not enough memory.");
 }
 
+static int lsnappy_validate_compressed_buffer(lua_State *L) 
+{
+    size_t src_len = 0;
+    size_t dst_max_size = 0;
+    const char* src = luaL_checklstring(L, 1, &src_len);
+    if(snappy_validate_compressed_buffer(src, src_len) == SNAPPY_OK) {
+        lua_pushboolean(L, 1);
+        return 1;
+    }
+    lua_pushboolean(L, 0);
+    return 1;
+}
+
 static const luaL_Reg snappy[] =
 {
     {"compress", lsnappy_compress},
     {"uncompress", lsnappy_uncompress},
     {"decompress", lsnappy_uncompress},
+    {"validate_compressed_buffer", lsnappy_validate_compressed_buffer},
     {NULL, NULL}
 };
 
