@@ -88,7 +88,7 @@ static const luaL_Reg snappy[] =
 
 int luaopen_snappy(lua_State *L)
 {
-#if LUA_VERSION_NUM == 502
+#if LUA_VERSION_NUM >= 502
     luaL_newlib(L, snappy);
 #else
     luaL_register(L, "snappy", snappy);

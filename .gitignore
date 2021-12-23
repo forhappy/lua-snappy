@@ -47,4 +47,5 @@ snappy/m4/lt~obsolete.m4
 snappy/missing
 snappy/snappy-stubs-public.h
 snappy/stamp-h1
+snappy/test-driver
 
